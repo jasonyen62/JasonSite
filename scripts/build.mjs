@@ -28,7 +28,7 @@ export default {
     }
 
     if (url.pathname === "/" || url.pathname === "/index.html") {
-      const renderedHtml = html.replaceAll("__OG_IMAGE_URL__", new URL("/og.png", request.url).href);
+      const renderedHtml = html.replaceAll("https://jasonyen62.github.io/og.png", new URL("/og.png", request.url).href);
       return new Response(isHead ? null : renderedHtml, {
         headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-cache", ...securityHeaders }
       });
