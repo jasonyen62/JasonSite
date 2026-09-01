@@ -1,28 +1,163 @@
 <!doctype html>
-<html ng-app="todoApp">
+<html lang="zh-Hant">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="todo.js"></script>
-    <link rel="stylesheet" href="todo.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="聚焦跨平台軟體開發、系統整合、後端服務與軟硬體通訊的匿名技術履歷。">
+    <meta name="theme-color" content="#eef3e7">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="系統整合與軟體工程｜技術履歷">
+    <meta property="og:description" content="跨平台開發、後端服務、設備通訊與現場整合的匿名技術履歷。">
+    <meta property="og:image" content="__OG_IMAGE_URL__">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="系統整合與軟體工程｜技術履歷">
+    <meta name="twitter:description" content="跨平台開發、後端服務、設備通訊與現場整合的匿名技術履歷。">
+    <meta name="twitter:image" content="__OG_IMAGE_URL__">
+    <title>系統整合與軟體工程｜技術履歷</title>
+    <link rel="stylesheet" href="resume.css">
   </head>
   <body>
-    <h2>Todo</h2>
-    <div ng-controller="TodoListController as todoList">
-      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
-      [ <a href="" ng-click="todoList.archive()">archive</a> ]
-      <ul class="unstyled">
-        <li ng-repeat="todo in todoList.todos">
-          <label class="checkbox">
-            <input type="checkbox" ng-model="todo.done">
-            <span class="done-{{todo.done}}">{{todo.text}}</span>
-          </label>
-        </li>
-      </ul>
-      <form ng-submit="todoList.addTodo()">
-        <input type="text" ng-model="todoList.todoText"  size="30"
-               placeholder="add new todo here">
-        <input class="btn-primary" type="submit" value="add">
-      </form>
-    </div>
+    <a class="skip-link" href="#main-content">跳至主要內容</a>
+
+    <header class="site-header" aria-label="頁首導覽">
+      <a class="brand" href="#top" aria-label="回到頁首">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Systems · Field · Code</span>
+      </a>
+      <nav class="nav-links" aria-label="履歷章節">
+        <a href="#expertise">專長</a>
+        <a href="#work">實作</a>
+        <a href="#toolkit">技術</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">TECHNICAL PROFILE · 技術履歷</p>
+          <h1 id="hero-title">把複雜系統，<br><em>做得穩定而清楚。</em></h1>
+          <p class="hero-intro">
+            橫跨 Windows 與 Linux 的軟體工程實務，從後端服務、資料庫與容器化部署，
+            到設備通訊、嵌入式控制與現場導入，能將需求一路落實成可長期運作的系統。
+          </p>
+          <div class="hero-tags" aria-label="核心定位">
+            <span>跨平台開發</span>
+            <span>軟硬體整合</span>
+            <span>系統穩定度</span>
+          </div>
+        </div>
+
+        <aside class="field-card" aria-label="能力概覽">
+          <p class="field-card-label">FIELD NOTES / 01</p>
+          <p class="field-quote">從設備端到服務端，理解每一段連線如何影響整體。</p>
+          <dl class="field-stats">
+            <div><dt>核心角色</dt><dd>軟體工程 × 系統整合</dd></div>
+            <div><dt>工作方式</dt><dd>分析、設計、實作、測試、維護</dd></div>
+            <div><dt>技術環境</dt><dd>Windows / Linux / Edge Devices</dd></div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="section" id="expertise" aria-labelledby="expertise-title">
+        <div class="section-heading">
+          <p class="section-index">01 / WHAT I DO</p>
+          <div>
+            <h2 id="expertise-title">我會什麼</h2>
+            <p>以系統全貌為起點，讓軟體、設備與部署環境能可靠地一起工作。</p>
+          </div>
+        </div>
+
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <p class="card-number">A</p>
+            <h3>後端與 API 設計</h3>
+            <p>使用 C#、ASP.NET 與 Node.js 建置後端服務，規劃 REST API、資料庫與第三方系統介接。</p>
+            <ul class="compact-list">
+              <li>服務與模組架構規劃</li><li>MySQL、MS SQL、MongoDB、SQLite</li><li>電子支付與外部服務介接</li>
+            </ul>
+          </article>
+
+          <article class="expertise-card">
+            <p class="card-number">B</p>
+            <h3>軟硬體與設備通訊</h3>
+            <p>整合現場設備、控制程式與上層應用，處理不同協定與硬體環境間的資料流。</p>
+            <ul class="compact-list">
+              <li>RS232 / RS485 / TCP / Modbus</li><li>Arduino、RTOS、Raspberry Pi</li><li>C / C++ 設備控制程式</li>
+            </ul>
+          </article>
+
+          <article class="expertise-card">
+            <p class="card-number">C</p>
+            <h3>部署與服務整合</h3>
+            <p>建置 Linux 服務環境，以 Docker Compose 整合應用程式、資料庫、訊息與快取服務。</p>
+            <ul class="compact-list">
+              <li>Nginx、Docker、Git</li><li>MQTT、ChirpStack、Redis</li><li>Windows / Linux 維運</li>
+            </ul>
+          </article>
+
+          <article class="expertise-card">
+            <p class="card-number">D</p>
+            <h3>現場導入與問題排除</h3>
+            <p>參與設備安裝、系統測試、教育訓練與維護，能把技術問題轉成清楚可執行的處理方式。</p>
+            <ul class="compact-list">
+              <li>案場安裝與整合測試</li><li>故障分析與客戶支援</li><li>需求釐清與技術溝通</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section work-section" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="section-index">02 / WHAT I BUILT</p>
+          <div>
+            <h2 id="work-title">我做過什麼</h2>
+            <p>不列公司名稱，僅保留實際參與的系統類型、責任範圍與技術內容。</p>
+          </div>
+        </div>
+
+        <div class="project-list">
+          <article class="project-row">
+            <div class="project-type">PARKING<br>SYSTEMS</div>
+            <div class="project-copy"><h3>停車與場域控制系統</h3><p>參與停車系統與周邊設備控制程式開發，涵蓋售票設備、場域安裝、測試及故障排除。</p></div>
+            <ul class="project-tech" aria-label="使用技術"><li>C / C++</li><li>Linux</li><li>RS232 / RS485</li><li>Modbus</li></ul>
+          </article>
+          <article class="project-row">
+            <div class="project-type">IOT &amp;<br>BACKEND</div>
+            <div class="project-copy"><h3>IoT 後端與設備資料整合</h3><p>獨立處理伺服器架設、資料庫規劃、後端 API 與設備資料收集，並以容器整合服務環境。</p></div>
+            <ul class="project-tech" aria-label="使用技術"><li>Node.js / C#</li><li>Docker</li><li>MQTT</li><li>MySQL / MongoDB</li></ul>
+          </article>
+          <article class="project-row">
+            <div class="project-type">FACTORY<br>AUTOMATION</div>
+            <div class="project-copy"><h3>半導體自動化與資料介接</h3><p>開發客製化用戶端與資料轉接程式，包含 OPC DA 資料收集，以及系統間的 SOAP 資料交換。</p></div>
+            <ul class="project-tech" aria-label="使用技術"><li>Visual C++</li><li>C#</li><li>OPC DA</li><li>SOAP</li></ul>
+          </article>
+          <article class="project-row">
+            <div class="project-type">FIELD<br>DELIVERY</div>
+            <div class="project-copy"><h3>醫療與零售場域系統導入</h3><p>負責現場軟體系統安裝、教育訓練、系統維護與問題排除，支援實際營運環境。</p></div>
+            <ul class="project-tech" aria-label="工作內容"><li>安裝部署</li><li>教育訓練</li><li>系統維護</li><li>問題排除</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section toolkit-section" id="toolkit" aria-labelledby="toolkit-title">
+        <div class="section-heading compact-heading">
+          <p class="section-index">03 / TOOLKIT</p>
+          <div><h2 id="toolkit-title">技術工具箱</h2><p>從應用程式、通訊協定到服務部署的實務技術組合。</p></div>
+        </div>
+        <div class="toolkit-grid">
+          <div class="tool-group"><h3>Languages</h3><p>C# · C · C++ · JavaScript · Node.js</p></div>
+          <div class="tool-group"><h3>Application</h3><p>ASP.NET · Angular · REST API · Postman</p></div>
+          <div class="tool-group"><h3>Data &amp; Services</h3><p>MS SQL · MySQL · MongoDB · SQLite · Redis · Nginx</p></div>
+          <div class="tool-group"><h3>Integration</h3><p>MQTT · Modbus · OPC DA · SOAP · RS232 · RS485</p></div>
+          <div class="tool-group"><h3>Edge &amp; DevOps</h3><p>Linux · Windows · Docker · Git · Arduino · Raspberry Pi · RTOS</p></div>
+          <div class="tool-group certification"><h3>Foundation</h3><p>電機專業背景 · WISE-PaaS Level I / Level II</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Software Engineering · System Integration · Field Reliability</p>
+      <a href="#top">回到頂端 ↑</a>
+    </footer>
   </body>
 </html>
