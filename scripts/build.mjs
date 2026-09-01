@@ -5,10 +5,12 @@ const projectRoot = resolve(import.meta.dirname, "..");
 const outputDir = resolve(projectRoot, "dist", "server");
 const html = await readFile(resolve(projectRoot, "index.html"), "utf8");
 const css = await readFile(resolve(projectRoot, "resume.css"), "utf8");
-const ogImage = await readFile(resolve(projectRoot, "og.png"));
+const favicon = await readFile(resolve(projectRoot, "favicon.svg"), "utf8");
+const ogImage = await readFile(resolve(projectRoot, "og.jpg"));
 
 const worker = `const html = ${JSON.stringify(html)};
 const css = ${JSON.stringify(css)};
+const favicon = ${JSON.stringify(favicon)};
 const ogImageBase64 = ${JSON.stringify(Buffer.from(ogImage).toString("base64"))};
 
 const securityHeaders = {
@@ -28,7 +30,7 @@ export default {
     }
 
     if (url.pathname === "/" || url.pathname === "/index.html") {
-      const renderedHtml = html.replaceAll("https://jasonyen62.github.io/og.png", new URL("/og.png", request.url).href);
+      const renderedHtml = html.replaceAll("https://jasonyen62.github.io/og.jpg", new URL("/og.jpg", request.url).href);
       return new Response(isHead ? null : renderedHtml, {
         headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-cache", ...securityHeaders }
       });
@@ -40,10 +42,16 @@ export default {
       });
     }
 
-    if (url.pathname === "/og.png") {
+    if (url.pathname === "/favicon.svg") {
+      return new Response(isHead ? null : favicon, {
+        headers: { "Content-Type": "image/svg+xml; charset=utf-8", "Cache-Control": "public, max-age=86400", ...securityHeaders }
+      });
+    }
+
+    if (url.pathname === "/og.jpg") {
       const binary = Uint8Array.from(atob(ogImageBase64), (character) => character.charCodeAt(0));
       return new Response(isHead ? null : binary, {
-        headers: { "Content-Type": "image/png", "Cache-Control": "public, max-age=86400", ...securityHeaders }
+        headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=86400", ...securityHeaders }
       });
     }
 
